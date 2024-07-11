@@ -1,3 +1,92 @@
+# CourseNest (Hub for Online Courses)
+
+## Overview
+
+CourseNest is a web application developed using .NET Core MVC (.NET 8), MS SQL Server, Entity Framework Core, and Identity Core for authentication. It allows users to browse, register, and purchase online courses. Administrators can manage courses, users, and other administrative tasks.
+
+## Tech Stack 🧑‍💻
+
+- **.NET Core MVC (.NET 8)**
+- **MS SQL Server (Database)**
+- **Entity Framework Core (ORM)**
+- **Identity Core (Authentication)**
+- **Bootstrap 5 (Frontend)**
+
+## How to Run the Project? 🌐
+
+Assuming you have already installed Visual Studio 2022 and MS SQL Server Management Studio (SQL Server 2022), follow these steps:
+
+1. **Clone the Project**
+    ```bash
+    git clone https://github.com/somesh-dawalbaje/CourseNest
+    ```
+
+2. **Open the Project in Visual Studio**
+    - Locate the file `CourseNest.sln` and double-click to open it in Visual Studio.
+
+3. **Update Connection String**
+    - Open `appsettings.json` and update the connection string:
+      ```json
+      "ConnectionStrings": {
+        "conn":  "Server=Your_Server_Name;Database=CourseNestDb;Trusted_Connection=True;MultipleActiveResultSets=true;TrustServerCertificate=True"
+      }
+      ```
+
+4. **Delete Migrations Folder**
+    - Delete the `Migrations` folder in the project.
+
+5. **Open Package Manager Console**
+    - In Visual Studio, navigate to `Tools > NuGet Package Manager > Package Manager Console`.
+
+6. **Run Migration Commands**
+    ```bash
+    add-migration init
+    update-database
+    ```
+
+7. **Run the Project**
+    - Press `F5` in Visual Studio or use the following command in the terminal:
+      ```bash
+      dotnet run
+      ```
+
+## How to Register as Admin and Login? 🧑‍💻🧑‍💻
+
+1. **Seed Default Data**
+    - Open `Program.cs` and uncomment these lines:
+      ```csharp
+      //using(var scope = app.Services.CreateScope())
+      //{
+      //    await DbSeeder.SeedDefaultData(scope.ServiceProvider);
+      //}
+      ```
+    - Run the project to seed the data, then stop the project and comment the lines again.
+
+2. **Admin Login**
+    - Use the following credentials to login as admin:
+      - **Username**: admin@gmail.com
+      - **Password**: Admin@123
+
+## Data Entry 📈📉
+
+To test the application, some initial data must be entered into the database.
+
+### Category
+- You can add categories from the admin panel.
+
+### Course
+- You can add courses from the admin panel.
+
+### EnrollmentStatus (⚠️Important)
+- EnrollmentStatus contains constants and cannot be entered through the admin panel. It must be added via SQL Server.
+
+
+
+
+
+### Screenshots
+
+
 ![Screenshot 2024-07-11 221729](https://github.com/somesh-dawalbaje/Dotnet_project_CourseNest/assets/161592874/70824b56-c815-4bda-998e-e6c31c901f1b)
 ![Screenshot 2024-07-11 221751](https://github.com/somesh-dawalbaje/Dotnet_project_CourseNest/assets/161592874/522958b6-7d17-4817-89c7-e4c5e0cf37e6)
 ![Screenshot 2024-07-11 221811](https://github.com/somesh-dawalbaje/Dotnet_project_CourseNest/assets/161592874/09cfd4b3-69ea-4a0f-adf7-fd246e7a03c3)
